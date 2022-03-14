@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>悬停发光</title>
+<style type="text/css">
+	*{
+/*		初始化页面元素内外边距*/
+		padding:0;
+		margin: 0;
+	}
+	.container{
+/*		弹性布局元素垂直水平居中*/
+		display:flex;
+		justify-content: center;
+		align-items: center;
+/*		子元素垂直排列*/
+		flex-direction: column;
+/*		宽高占浏览器可视窗口占比*/
+		width: 100vm;
+		height: 100vh;
+		background: black;
+	}
+	.container a{
+/*		相对位置*/
+		position:relative;
+/*		把行内元素转为块元素设置宽高*/
+		display: block;
+		width: 140px;
+		height: 60px;
+/*		行高*/
+		line-height: 60px;
+/*		清除下划线*/
+		text-align: center;
+		margin: 40px;
+		color: aqua;
+		font-size: 20px;
+		text-decoration: none;
+/*		加入过渡时间*/
+		transition: all 0.3s ease-in-out;
+/*		这里调用hue-rotate（颜色滤镜）+calc（计算方法）+var（函数）+80deg（5个a分别乘80度）*/
+/*		一句就能设置改变所有颜色*/
+		filter: hue-rotate(calc(var(--i)*80deg));
+	}
+	.container a::before,.container a::after{
+/*		将伪元素前后两个相同部分写在一起*/
+/*		content配合before和after使用*/
+		content: "";
+		position: absolute;
+		width: 20px;
+		height: 20px;
+/*		设置伪元素边框属性*/
+		border: 2px solid aqua;
+/*		这里过渡时间多加了一个0.3s是延迟时间*/
+		transition: all 0.3s ease-in-out 0.3s;
+	}
+	.container a::before{
+/*		调整位置并清除部分边框*/
+		top:0;
+		left:0;
+		border-right: 0;
+		border-bottom: 0;
+	}
+	.container a::after{
+		bottom:0;
+		right:0;
+		border-left: 0;
+		border-top: 0;
+	}
+	.container a:hover{
+		background:aqua;
+		color: black;
+/*		发光效果50px为模糊度*/
+		box-shadow: 0 0 50px aqua;
+/*		倒影效果below为倒影 1px是倒影元素相隔距离 linear-gradient是渐变（这里如果单独设置从上到下的渐变是background: repeating-linear-gradient(rgba(0,0,0,1),rgba(0,0,0,0));）*/
+		-webkit-box-reflect:below 1px linear-gradient(transparent,rgba(0,0,0,0.3));
+/*		设置以上属性的延迟时间*/
+		transition-delay: 0.4s;
+	}
+	.container a:hover::before,.container a:hover::after{
+/*		设置两条线的变化就是增加宽高 注意a鼠标滑过hover设置两个伪元素before和after*/
+		width:138px;
+		height: 58px;
+		transition-delay: 0s;
+	}
+</style>
+</head>
+
+<body>
+	<div class="container">
+<!--		批量处理同一个a标签里的元素基础是style的设置-->
+		<a href="#" style="--i:1">喜剧</a>
+		<a href="#" style="--i:2">爱情</a>
+		<a href="#" style="--i:3">动作</a>
+		<a href="#" style="--i:4">惊悚</a>
+		<a href="#" style="--i:5">犯罪</a>
+	</div>
+</body>
+</html>

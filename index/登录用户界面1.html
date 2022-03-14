@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>用户登录</title>
+<style type="text/css">
+	*{
+		padding:0;
+		margin: 0;
+/*		盒子模型*/
+		box-sizing: border-box;
+	}
+	body{
+		display:flex;
+		justify-content: center;
+		align-items:center;
+		height: 100vh;
+		background: linear-gradient(#141e30,#243b);
+	}
+	.login{
+/*		弹性布局 让子元素称为弹性项目*/
+		display:flex;
+/*		让弹性项目垂直排列 原理改变盒子轴方向 父元素就是弹性盒子 现在改变主轴方向是向下了*/
+		flex-direction: column;
+/*		让弹性项目在交叉轴方向水平居中 现在主轴的方向是向下 交叉轴的方向是与主轴垂直 交叉轴方向向右*/
+		align-items: center;
+		width: 400px;
+		padding:  40px;
+		background: rgba(0,0,0,0.2);
+		box-shadow: 0 15px 25px rgba(0,0,0,0.4);
+	}
+	.login h2{
+		color:#fff;
+		margin-bottom: 30px;
+	}
+	.login_box{
+		position:relative;
+		width: 100%;
+	}
+	.login_box input{
+/*		清除input框自带的轮廓和边框*/
+		outline: none;
+		border: none;
+		width:100%;
+		padding: 10px 0;
+		color: #fff;
+		margin-bottom: 30px;
+		font-size: 16px;
+		border-bottom: 1px solid #fff;
+/*		背景透明色*/
+		background: transparent;
+	}
+	.login_box label{
+		position:absolute;
+		top:0;
+		left: 0;
+		padding: 10px 0;
+		color: #fff;
+/*		默认值是被点击 none是不能点击*/
+		pointer-events: none;
+/*		过度*/
+		transition: all 0.5s;
+	}
+/*	focus选择器是input获得焦点触发样式+相邻选择器，valid选择器是判断input框内容是否合法与上面的required相关*/
+	.login_box input:focus+label,.login_box input:valid+label{
+		top:-20px;
+		color: aqua;
+		font-size: 12px;
+	}
+	.login a{
+		overflow: hidden;
+		position:relative;
+		padding: 10px 20px;
+		color: aqua;
+/*		去下划线*/
+		text-decoration: none;
+/*		过度*/
+		transition: all 0.5s;
+	}
+	.login a:hover{
+		color:#fff;
+		border-radius: 5px;
+		background: aqua;
+		box-shadow: 0 0 5px aqua,0 0 25px aqua,0 0 50px aqua,0 0 100px aqua;
+	}
+	.login a span{
+		position:absolute;
+	}
+	.login a span:first-child{
+		top:0;
+		left: -100%;
+		width: 100%;
+		height: 2px;
+/*		to right就是往右边*/
+		background: linear-gradient(to right,transparent,aqua);
+		animation: move1 1s linear infinite;
+	}
+	.login a span:nth-child(2){
+		right: 0;
+		top:-100%;
+		height: 100%;
+		width: 2px;
+		background: linear-gradient(transparent,aqua);
+		animation: move2 1s linear 0.25s infinite;
+	}
+	.login a span:nth-child(3){
+		bottom: 0;
+		right:-100%;
+		width: 100%;
+		height: 2px;
+		background: linear-gradient(to left,transparent,aqua);
+		animation: move3 1s linear 0.5s infinite;
+	}
+	.login a span:last-child{
+		left: 0;
+		bottom:-100%;
+		height: 100%;
+		width: 2px;
+		background: linear-gradient(aqua,transparent);
+		animation: move4 1s linear 0.75s infinite;
+	}
+/*	动画*/
+	@keyframes move1{
+		0%{
+			left: -100%;
+		}
+		50%,100%{
+			left: 100%;
+		}
+	}
+	@keyframes move2{
+		0%{
+			top: -100%;
+		}
+		50%,100%{
+			top: 100%;
+		}
+	}
+	@keyframes move3{
+		0%{
+			right: -100%;
+		}
+		50%,100%{
+			right: 100%;
+		}
+	}
+	@keyframes move4{
+		0%{
+			bottom: -100%;
+		}
+		50%,100%{
+			bottom: 100%;
+		}
+	}
+</style>
+</head>
+
+<body>
+	<div class="login">
+		<h2>用户登录</h2>
+		<div class="login_box">
+			<input type="text" required="required">
+			<label>用户名</label>
+		</div>
+		<div class="login_box">
+			<input type="password" required="required">
+			<label>密码</label>
+		</div>
+		<a href="#">登录
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</a>
+	</div>
+</body>
+</html>

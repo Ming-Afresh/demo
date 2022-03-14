@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        nav {
+            background: #1b1b1b;
+            padding: 10px;
+            border-radius: 7px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+        }
+
+        nav ul li {
+            /* 行内li横向布局 */
+            display: inline-flex;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #f2f2f2;
+            font-size: 23px;
+            display: block;
+            padding: 6px 3px;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        nav ul li .menu .f-word,
+        nav ul li .menu .s-word {
+            display: inline-block;
+            position: relative;
+            transition: .5s;
+        }
+
+        nav ul li .menu .s-word {
+            margin-left: -5px;
+        }
+
+        nav ul li .menu .f-word::before,
+        nav ul li .menu .s-word::before {
+            /* 多个元素伪元素设置 */
+            content: attr(data-hover);
+            position: absolute;
+        }
+
+        nav ul li .menu .f-word::before {
+            color: cyan;
+            top: 105%;
+        }
+
+        nav ul li .menu .s-word::before {
+            color: cyan;
+            bottom: 105%;
+        }
+
+        a:hover .f-word {
+            transform: translate3d(0, -105%, 0);
+        }
+
+        a:hover .s-word {
+            transform: translate3d(0, 105%, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">
+                    <span class="menu">
+                        <span class="f-word" data-hover="Ho">Ho</span>
+                        <span class="s-word" data-hover="me">me</span>
+                    </span>
+                </a></li>
+            <li><a href="#">
+                    <span class="menu">
+                        <span class="f-word" data-hover="Feat">Feat</span>
+                        <span class="s-word" data-hover="ures">ures</span>
+                    </span>
+                </a></li>
+            <li><a href="#">
+                    <span class="menu">
+                        <span class="f-word" data-hover="Serv">Serv</span>
+                        <span class="s-word" data-hover="ices">ices</span>
+                    </span>
+                </a></li>
+            <li><a href="#">
+                    <span class="menu">
+                        <span class="f-word" data-hover="Cont">Cont</span>
+                        <span class="s-word" data-hover="act">act</span>
+                    </span>
+                </a></li>
+            <li><a href="#">
+                    <span class="menu">
+                        <span class="f-word" data-hover="Feed">Feed</span>
+                        <span class="s-word" data-hover="back">back</span>
+                    </span>
+                </a></li>
+        </ul>
+    </nav>
+</body>
+
+</html>

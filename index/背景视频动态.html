@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 给网页装饰 CSS(层叠样式表) */
+        /* 选择 */
+        body {
+            /* 标签选择器 默认样式 */
+            margin: 0;
+            /* 外边距 */
+        }
+
+        .switch {
+            /* class(类)选择器 */
+            position: relative;
+            /* 相对定位 给绝对定位元素作为参考坐标 */
+            width: 100%;
+            /* 宽度:300(px 单位 像素); */
+            height: 720px;
+            /* 高度:200px */
+            /* background-color: #79e8a8; */
+            /* 背景颜色 颜色值 */
+        }
+
+        .select {
+            /* 绝对定位 给元素改变位置 默认参考浏览器窗口改变位置 */
+            position: absolute;
+            top: 0px;
+            /* 顶部 */
+            left: 80px;
+            /* 左边 */
+            width: 315px;
+            height: 282px;
+        }
+
+        .btn {
+            float: left;
+            /* 浮动(横排) left向左(从左至右) */
+            width: 40px;
+            height: 100%;
+            /* 百分比是基于父元素计算的 */
+            margin-right: 12px;
+            /* 右外边距 */
+            background-image: url("../image/bg.webp");
+            /* 背景图片 图片路径url */
+        }
+
+        .btn2 {
+            background-position-x: -59px;
+            /* 背景位置 x方向 */
+        }
+
+        .btn3 {
+            background-position-x: -114px;
+            /* 背景位置 x方向 */
+        }
+
+        .btn4 {
+            background-position-x: -169px;
+            /* 背景位置 x方向 */
+        }
+
+        .btn5 {
+            background-position-x: -224px;
+            /* 背景位置 x方向 */
+        }
+
+        .btn6 {
+            background-position-x: -279px;
+            /* 背景位置 x方向 */
+        }
+
+        /* :hover鼠标移入.btn6 改变它自身的样式 */
+        .btn1:hover {
+            background-position-x: -369px;
+        }
+
+        .btn2:hover {
+            background-position-x: -429px;
+        }
+
+        .btn3:hover {
+            background-position-x: -484px;
+        }
+
+        .btn4:hover {
+            background-position-x: -539px;
+        }
+
+        .btn5:hover {
+            background-position-x: -594px;
+        }
+
+        .btn6:hover {
+            background-position-x: -649px;
+        }
+    </style>
+
+<body>
+    <!-- 身体/主体标签 存放给用户看的内容  -->
+    <!-- 盒子标签 矩形区域 长方形 大小(宽高) 标签区分
+            class(类名)命名 规范化 英文单词 见名知意  -->
+    <div class="switch">
+        <div class="video">
+            <!-- 加载一个视频的标签 属性(标签的...) src路径/地址 autoplay自动播放 muted静音 loop循环播放 -->
+            <video src="../video/zy.mp4" autoplay muted loop></video>
+        </div>
+        <div class="select">
+            <div class="btn btn1"></div>
+            <div class="btn btn2"></div>
+            <div class="btn btn3"></div>
+            <div class="btn btn4"></div>
+            <div class="btn btn5"></div>
+            <div class="btn btn6"></div>
+        </div>
+    </div>
+</body>
+</head>
+
+<body>
+
+</body>
+
+</html>

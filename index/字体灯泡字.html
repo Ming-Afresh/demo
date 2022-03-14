@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>灯泡字</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: arial;
+		}
+
+		body {
+			display: flex;
+			justify-content: center;
+			background: #07252d;
+		}
+
+		.a {
+			position: relative;
+			top: 200px;
+			font: 900 100px '';
+			color: #333;
+			cursor: pointer;
+		}
+
+		.a span {
+			transition: .1s;
+			transition-delay: calc(var(--i)*.1s);
+		}
+
+		.a:hover span {
+			color: #fff;
+			text-shadow: 0 0 10px #fff,
+				0 0 20px #fff,
+				0 0 30px #fff,
+				0 0 50px #fff,
+				0 0 80px #fff;
+		}
+
+
+		h2 {
+			position: absolute;
+			top: 500px;
+			font-size: 10em;
+			letter-spacing: 15px;
+			color: #0e3742;
+			text-transform: uppercase;
+			text-align: center;
+			-webkit-box-reflect: below 1px linear-gradient(transparent, #0008);
+			line-height: 0.7em;
+			outline: none;
+			animation: animate 5s linear infinite;
+		}
+
+		@keyframes animate {
+
+			0%,
+			18%,
+			20%,
+			50.1%,
+			60%,
+			65.1%,
+			80%,
+			90.1%,
+			92% {
+				color: #0e3742;
+			}
+
+			18.1%,
+			20.1%,
+			50.1%,
+			60%,
+			65.1%,
+			80%,
+			90.1%,
+			100% {
+				color: #fff;
+				text-shadow: 0 0 10px #03bcf4,
+					0 0 20px #03bcf4,
+					0 0 40px #03bcf4,
+					0 0 80px #03bcf4,
+					0 0 100px #03bcf4;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="a">
+		<span style="--i:1">L</span>
+		<span style="--i:2">O</span>
+		<span style="--i:3">V</span>
+		<span style="--i:4">E</span>
+		<span style="--i:5">/</span>
+		<span style="--i:6">Y</span>
+		<span style="--i:7">O</span>
+		<span style="--i:8">U</span>
+	</div>
+
+
+	<h2 contenteditable="true">TEXT</h2>
+</body>
+
+</html>

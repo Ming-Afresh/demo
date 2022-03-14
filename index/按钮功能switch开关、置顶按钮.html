@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>switch开关按钮</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+
+		body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			background-color: darkslategrey;
+		}
+
+		label {
+			position: relative;
+			width: 150px;
+			height: 76px;
+			border-radius: 38px;
+			background: #e9e9e9;
+			overflow: hidden;
+		}
+
+		label input {
+			/*		隐藏复选框 这里用visibility*/
+			visibility: hidden;
+			cursor: pointer;
+		}
+
+		label input::after {
+			visibility: visible;
+			content: "";
+			position: absolute;
+			top: 5px;
+			left: 5px;
+			width: 66px;
+			height: 66px;
+			background: #fff;
+			border-radius: 50%;
+			/*			过度 防止移动过快*/
+			transition: all 0.5s;
+		}
+
+		/*		让复选框选中后球球向右移动*/
+		label input:checked::after {
+			transform: translateX(74px);
+		}
+
+		/*		复选框选中后背景色改变*/
+		label input::before {
+			visibility: visible;
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			transition: all 0.5s;
+		}
+
+		/*		选中后背景色改变 让复选框选中后before伪元素背景色发生变化*/
+		label input:checked::before {
+			background: #65c466;
+		}
+
+
+
+		/* -----------------------------下面是置顶按钮-------------------------- */
+		ul li {
+			margin: 100px 0 0 200px;
+			color: #fff;
+		}
+
+		.arrow-btn {
+			position: fixed;
+			bottom: 30px;
+			right: 30px;
+			z-index: 9;
+			visibility: hidden;
+			opacity: 0;
+			transition: 1s;
+		}
+
+		.arrow-btn.active {
+			visibility: visible;
+			opacity: 1;
+		}
+
+		.arrow-btn a {
+			height: 39px;
+			width: 37px;
+			text-align: center;
+			background: #1b1b1b;
+			display: block;
+			border-radius: 3px;
+			cursor: pointer;
+		}
+
+		.arrow-btn a span {
+			color: #f2f2f2;
+			line-height: 39px;
+			font-size: 25px;
+		}
+	</style>
+</head>
+
+<body>
+	<label for="switch">
+		<input type="checkbox" name="switch" id="switch">
+	</label>
+
+
+	<div class="arrow-btn">
+		<a href="#"><span class="fa fa-angle-up"></span></a>
+	</div>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+		<li>10</li>
+		<li>11</li>
+		<li>12</li>
+		<li>13</li>
+		<li>14</li>
+		<li>15</li>
+		<li>16</li>
+		<li>17</li>
+		<li>18</li>
+		<li>19</li>
+		<li>20</li>
+	</ul>
+	<script>
+		window.addEventListener('scroll', () => {
+			var scroll = document.querySelector('.arrow-btn');
+			scroll.classList.toggle("active", window.scrollY > 500)
+		})
+	</script>
+</body>
+
+</html>

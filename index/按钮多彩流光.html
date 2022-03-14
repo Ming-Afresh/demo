@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>流光按钮</title>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+
+		html,
+		body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+			background: #000;
+			place-items: center;
+		}
+
+		a {
+			position: relative;
+			top: 30%;
+			width: 400px;
+			height: 100px;
+			line-height: 100px;
+			text-align: center;
+			text-decoration: none;
+			text-transform: uppercase;
+			font-size: 24px;
+			color: #fff;
+			/*		圆角属性*/
+			border-radius: 50px;
+			background-image: linear-gradient(to right, #03a9f4, #f441a5, #ffeb3b, #09a8f4);
+			/*		背景色渐变大小*/
+			background-size: 400%;
+			z-index: 1;
+		}
+
+		/*	发光效果*/
+		a::before {
+			content: '';
+			position: absolute;
+			top: -5px;
+			bottom: -5px;
+			left: -5px;
+			right: -5px;
+			border-radius: 50px;
+			background-image: linear-gradient(to right, aqua, deeppink, yellow, cyan);
+			/*		背景色渐变大小*/
+			background-size: 400%;
+			/*		元素的位置 底层或顶层 -值表示底层 +值表示顶层*/
+			z-index: -1;
+			/*		设置模糊度 显示发光效果*/
+			filter: blur(20px);
+		}
+
+		a:hover {
+			animation: sun 8s infinite;
+		}
+
+		a:hover::before {
+			animation: sun 8s infinite;
+		}
+
+		@keyframes sun {
+			100% {
+				background-position: -400% 0;
+			}
+		}
+
+
+		/* --第二种-- */
+		.center {
+			display: flex;
+			text-align: center;
+			align-items: center;
+			justify-content: center;
+			position: absolute;
+			top: 10%;
+		}
+
+		.outer {
+			position: relative;
+			margin: 0 50px;
+			background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+		}
+
+		.button {
+			height: 70px;
+			width: 220px;
+			border-radius: 50px;
+		}
+
+		.circle {
+			height: 200px;
+			width: 200px;
+			border-radius: 50%;
+		}
+
+		.outer button,
+		.outer span {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		.outer button {
+			background: #111;
+			color: #f2f2f2;
+			outline: none;
+			border: none;
+			font-size: 20px;
+			z-index: 9999;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+			cursor: pointer;
+		}
+
+		.button button {
+			height: 60px;
+			width: 210px;
+			border-radius: 50px;
+		}
+
+		.circle button {
+			height: 180px;
+			width: 180px;
+			border-radius: 50%;
+		}
+
+
+		.outer span {
+			height: 100%;
+			width: 100%;
+			background: inherit;
+		}
+
+		.button span {
+			border-radius: 50px;
+		}
+
+		.circle span {
+			border-radius: 50%;
+		}
+
+		.outer:hover span:nth-child(1) {
+			filter: blur(7px);
+		}
+
+		.outer:hover span:nth-child(2) {
+			filter: blur(14px);
+		}
+
+		.outer:hover {
+			animation: rotate 1.5s linear infinite;
+		}
+
+		@keyframes rotate {
+			0% {
+				filter: hue-rotate(0deg);
+			}
+
+			100% {
+				filter: hue-rotate(360deg);
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<a href="#">sunbutton</a>
+
+	<!-- 第二种 -->
+	<div class="center">
+		<div class="outer button">
+			<button>Hover Me</button>
+			<span></span>
+			<span></span>
+		</div>
+		<div class="outer circle">
+			<button>Hover Me</button>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+</body>
+
+</html>

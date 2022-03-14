@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tab伸缩式导航栏</title>
+	<style type="text/css">
+		*{
+			padding:0;
+			margin: 0;
+		}
+		body{
+			height: 100vh;
+			background: linear-gradient(#99f,#f99);
+		}
+		body,.navbar,.navbar ul{
+			display:flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.navbar{
+			position:relative;
+			padding: 20px;
+			border-radius: 50px;
+			background: #fff;
+		}
+		.navbar input{
+			width:40px;
+			height: 40px;
+			cursor: pointer;
+			opacity: 0;
+		}
+		.navbar span{
+			position:absolute;
+			left: 25px;
+/*			现将两条线放到一起 然后单独设置第二条线的位置*/
+			top: calc(50% - 10px);
+			width: 30px;
+			height: 4px;
+			border-radius: 15px;
+			background: #999;
+/*			这里解决span覆盖复选框的问题*/
+			pointer-events: none;
+			transition: transfrom 0.3s ease-in-out,top 0.3s ease-in-out 0.3s;
+		}
+/*		因为第二条线在navbar这个元素内的第三个位置 所以这里写3*/
+		.navbar span:nth-child(3){
+			top:calc(50% + 6px);
+		}
+		.navbar ul{
+			width:0;
+			overflow: hidden;
+			transition: all 0.5s;
+/*			文字一行排列 不换行*/
+			white-space: nowrap;
+		}
+		.navbar ul li{
+			list-style:none;
+			margin: 0 15px;
+		}
+		.navbar ul li a{
+			text-decoration:none;
+			font-size: 20px;
+			font-weight: 700;
+			color: #333;
+		}
+		.navbar ul li a:hover{
+			color:#fb7299;
+		}
+/*		:hover是当选中的复选框的时候 ~ 是兄弟选择器 查找同一级的ul*/
+		.navbar input:checked~ul{
+			width:350px;
+		}
+		.navbar input:checked~span:nth-child(2){
+			top:calc(50% - 2px);
+			transform: rotate(-45deg);
+			background: #fb7299;
+			transition: top 0.3s ease-in-out,transform 0.3s ease-in-out 0.3s;
+		}
+		.navbar input:checked~span:nth-child(3){
+			top:calc(50% - 2px);
+			transform: rotate(45deg);
+			background: #fb7299;
+			transition: top 0.3s ease-in-out,transform 0.3s ease-in-out 0.3s;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="navbar">
+		<input type="checkbox">
+		<span></span>
+		<span></span>
+		<ul>
+			<li><a href="#">喜剧</a></li>
+			<li><a href="#">爱情</a></li>
+			<li><a href="#">动作</a></li>
+			<li><a href="#">惊悚</a></li>
+			<li><a href="#">犯罪</a></li>
+		</ul>
+	</div>
+</body>
+</html>

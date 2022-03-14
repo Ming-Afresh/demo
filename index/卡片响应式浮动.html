@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #112128;
+        }
+
+        .container {
+            position: relative;
+            width: 1000px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .container .card {
+            position: relative;
+            max-width: 450px;
+            background: #fff;
+            margin: 10px;
+            padding: 15px;
+            display: flex;
+        }
+
+        .container .card .imgBx {
+            max-width: 150px;
+            flex: 0 0 150px;
+        }
+
+        .container .card .imgBx img {
+            max-width: 100%;
+        }
+
+        .container .card .content {
+            margin-left: 20px;
+        }
+
+        @media (max-width: 991px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .container .card {
+                flex-direction: column;
+                max-width: 350px;
+            }
+
+            .container .card .imgBx {
+                max-width: 100%;
+            }
+
+            .container .card .content {
+                margin-left: 0px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="imgBx">
+                <img src="../images/1.jpg" alt="">
+            </div>
+            <div class="content">
+                <h2>Card One</h2>
+                <p>疾风剑豪，亚索，被誉为艾欧尼亚最为出色的剑客，身法敏捷，资质过人，堪称天才学徒，亚索不但是天才学徒，还是整个剑客学徒中唯一能驾驭御风剑术的人，当时很多人都十分的相信亚索日后肯定能称为一个大英雄，然后因为诺克萨斯的入侵，让亚索一生的命运都为止改变，从此走向了寻找真相的道路。
+                </p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBx">
+                <img src="../images/2.jpg" alt="">
+            </div>
+            <div class="content">
+                <h2>Card Two</h2>
+                <p>疾风剑豪，亚索，被誉为艾欧尼亚最为出色的剑客，身法敏捷，资质过人，堪称天才学徒，亚索不但是天才学徒，还是整个剑客学徒中唯一能驾驭御风剑术的人，当时很多人都十分的相信亚索日后肯定能称为一个大英雄，然后因为诺克萨斯的入侵，让亚索一生的命运都为止改变，从此走向了寻找真相的道路。
+                </p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBx">
+                <img src="../images/3.jpg" alt="">
+            </div>
+            <div class="content">
+                <h2>Card Three</h2>
+                <p>疾风剑豪，亚索，被誉为艾欧尼亚最为出色的剑客，身法敏捷，资质过人，堪称天才学徒，亚索不但是天才学徒，还是整个剑客学徒中唯一能驾驭御风剑术的人，当时很多人都十分的相信亚索日后肯定能称为一个大英雄，然后因为诺克萨斯的入侵，让亚索一生的命运都为止改变，从此走向了寻找真相的道路。
+                </p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBx">
+                <img src="../images/4.jpg" alt="">
+            </div>
+            <div class="content">
+                <h2>Card Fore</h2>
+                <p>疾风剑豪，亚索，被誉为艾欧尼亚最为出色的剑客，身法敏捷，资质过人，堪称天才学徒，亚索不但是天才学徒，还是整个剑客学徒中唯一能驾驭御风剑术的人，当时很多人都十分的相信亚索日后肯定能称为一个大英雄，然后因为诺克萨斯的入侵，让亚索一生的命运都为止改变，从此走向了寻找真相的道路。
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

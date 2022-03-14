@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .conatiner {
+            position: relative;
+        }
+
+        .conatiner .box {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .conatiner .box img {
+            max-width: 80%;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="conatiner">
+        <div class="box"><img src="../images/16.jpg" alt=""></div>
+        <div class="box"><img src="../images/17.jpg" alt=""></div>
+        <div class="box"><img src="../images/18.jpg" alt=""></div>
+        <div class="box"><img src="../images/19.jpg" alt=""></div>
+        <div class="box"><img src="../images/20.jpg" alt=""></div>
+        <div class="box"><img src="../images/21.jpg" alt=""></div>
+        <div class="box"><img src="../images/22.jpg" alt=""></div>
+        <div class="box"><img src="../images/23.jpg" alt=""></div>
+        <div class="box"><img src="../images/24.jpg" alt=""></div>
+        <div class="box"><img src="../images/25.jpg" alt=""></div>
+    </div>
+</body>
+<script src="https://unpkg.com/grade-js/docs/dist/grade.js"></script>
+<script type="text/javascript">
+    window.addEventListener('load', function () {
+        /*
+            A NodeList of all your image containers (Or a single Node).
+            The library will locate an <img /> within each
+            container to create the gradient from.
+         */
+        Grade(document.querySelectorAll('.box'))
+    })
+</script>
+
+</html>
+
+<!-- https://benhowdle89.github.io/grade/
+
+    GitHub
+
+-->

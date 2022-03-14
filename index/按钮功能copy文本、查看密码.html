@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            place-items: center;
+            background: lightslategrey;
+        }
+
+        textarea {
+            padding: 10px;
+            font-size: 17px;
+            /* 设置文本框的放大缩小  none是清除这个功能 */
+            resize: none;
+            /* 文本字间距 自适应占满一行 */
+            text-align: justify;
+            color: #202020;
+        }
+
+        /* 选中文本框后 边框的颜色 */
+        textarea:focus {
+            outline-color: #16a085;
+            border-color: #16a085;
+        }
+
+        .btn {
+            margin: 5px 0 40px 0;
+        }
+
+        .btn button {
+            padding: 9px 15px;
+            font-size: 17px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            outline: none;
+            color: #f2f2f2;
+            font-weight: 500;
+            border-radius: 3px;
+            cursor: pointer;
+            background: linear-gradient(#18b495, #16a085);
+        }
+
+        .btn .tooltip {
+            position: relative;
+            margin-left: -10px;
+            font-size: 17px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 5px 10px;
+            border-radius: 3px;
+            color: #f2f2f2;
+            z-index: -1;
+            background: linear-gradient(#18b495, #16a085);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s, margin-left 0.4s;
+        }
+
+        .btn .tooltip.show {
+            margin-left: 10px;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .tooltip::before {
+            content: '';
+            position: absolute;
+            height: 15px;
+            width: 15px;
+            background: linear-gradient(#18b495, #16a085);
+            top: 50%;
+            left: -5px;
+            z-index: -1;
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+
+        /* 查看密码 */
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .container-password {
+            background-color: #fff;
+            width: 100%;
+            max-width: 500px;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 2px;
+            color: #4d4d4d;
+            position: relative;
+        }
+
+        .txtb {
+            height: 50px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .txtb input {
+            width: 100%;
+            height: 50px;
+            border: 1px solid black;
+            padding: 0 20px;
+            font-size: 18px;
+            color: #666;
+            border-radius: 3px;
+            outline-color: #16a085;
+        }
+
+        .placeholder {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            user-select: none;
+            pointer-events: none;
+            font-size: 17px;
+            transform-origin: 0 0;
+            transition: .2s linear;
+        }
+
+        .txtb input:not(:placeholder-shown)+.placeholder {
+            transform: scale(.75) translateY(-28px);
+        }
+
+        .txtb input:not(:placeholder-shown) {
+            padding-top: 12px;
+        }
+
+        .show-password-btn {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .checkbox {
+            display: inline-block;
+            margin-bottom: 20px;
+            cursor: pointer;
+            padding-left: 30px;
+        }
+
+        .checkbox input {
+            display: none;
+        }
+
+        .checkbox span::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #4d4d4d;
+            left: 20px;
+            box-sizing: border-box;
+            border-radius: 3px;
+        }
+
+        .checkbox span::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 6px;
+            border-bottom: 2px solid #333;
+            border-left: 2px solid #333;
+            transform: rotate(-50deg);
+            box-sizing: border-box;
+            left: 5.5%;
+            top: 46%;
+            display: none;
+        }
+
+        .checkbox input:checked+span::after {
+            display: block;
+        }
+
+        .forgot-signin-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .link {
+            color: #fcaF17;
+            text-decoration: none;
+            transition: .2S linear;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        .forgot-signin-container input {
+            width: 100px;
+            height: 38px;
+            border: none;
+            background-image: linear-gradient(90deg, #f7931e, #fcaf17);
+            color: #fff;
+            font-weight: 700;
+            outline: none;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .forgot-signin-container input:hover {
+            background: #fcaf17;
+        }
+
+        .create-account {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        /* +++++++++++++++++++++++++++++++适应窗口大小+++++++++++++++++++++++++++++++ */
+        @media screen and (max-width:520px) {
+            body {
+                align-items: unset;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <textarea name="" id="copyText" cols="45"
+            rows="5">With the development of The Times and the faster and faster progress of science and technology, mobile phone is one of the products of The Times. It has become an indispensable necessity in People's Daily life.</textarea>
+        <div class="btn"><button>copy in clipboard</button><span class="tooltip">Copied</span></div>
+        <textarea name="" id="pasteText" cols="45" rows="5" placeholder="Paste your copied content here..."></textarea>
+    </div>
+
+
+    <!-- 查看密码 -->
+    <div class="container-password">
+        <form action="">
+            <div class="txtb">
+                <input type="text" placeholder=" ">
+                <span class="placeholder">Email</span>
+            </div>
+            <div class="txtb">
+                <input type="password" id="passwordInput" placeholder=" ">
+                <span class="placeholder">Password</span>
+                <i class="show-password-btn" onclick="show()">
+                    <svg t="1620897343710" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="1951" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        width="200" height="200">
+                        <defs>
+                            <style type="text/css"></style>
+                        </defs>
+                        <path
+                            d="M512 341.333333c-93.866667 0-170.666667 76.8-170.666667 170.666667s76.8 170.666667 170.666667 170.666667 170.666667-76.8 170.666667-170.666667-76.8-170.666667-170.666667-170.666667z m0 298.666667c-70.4 0-128-57.6-128-128s57.6-128 128-128 128 57.6 128 128-57.6 128-128 128z"
+                            fill="#666767" p-id="1952"></path>
+                        <path
+                            d="M512 149.333333C121.6 149.333333 0 512 0 512s134.4 362.666667 512 362.666667 512-362.666667 512-362.666667S902.4 149.333333 512 149.333333z m0 682.666667C206.933333 832 74.666667 576 46.933333 512 72.533333 448 198.4 192 512 192c315.733333 0 439.466667 253.866667 465.066667 320-27.733333 61.866667-162.133333 320-465.066667 320z"
+                            fill="#666767" p-id="1953"></path>
+                    </svg>
+                </i>
+            </div>
+            <label class="checkbox">
+                <input type="checkbox">
+                <span>Keep me signed in</span>
+            </label>
+            <div class="forgot-signin-container">
+                <a href="#" class="link">Forgot your password?</a>
+                <input type="button" value="Sign in">
+            </div>
+            <div class="create-account">
+                Not a member?
+                <a href="#" class="link">Create a new account</a>
+            </div>
+            <div class="copyright">
+                <!-- --------------------版权标志---------------------- -->
+                &copy;2020
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    const copyText = document.querySelector("#copyText");
+    const pasteText = document.querySelector("#pasteText");
+    const button = document.querySelector("button");
+    const tooltip = document.querySelector(".tooltip");
+    button.addEventListener('click', function () {
+        copyText.select();
+        pasteText.value = " ";
+        if (document.execCommand("copy")) {
+            pasteText.focus();
+            tooltip.classList.add("show");
+            setTimeout(function () {
+                tooltip.classList.remove("show");
+            }, 700);       // this is time duration in milisecond ......1sec=1000milisecond
+        } else {
+            alert("Something went wrong!");
+        }
+    });
+</script>
+<!-- 查看密码 -->
+<script>
+    document.querySelector(".show-password-btn").addEventListener("click", function show() {
+        var passwordInput = document.querySelector("#passwordInput");
+        // 这里show()与icon的属性定义点击眼睛变色 不过需要换成css图标
+        var icon = document.querySelector('.show-password-btn');
+        if (passwordInput.type == "password") {
+            passwordInput.type = "text";
+            icon.style.color = "#fcaf17";
+        } else {
+            passwordInput.type = "password";
+            icon.style.color = "grey";
+        }
+    });
+</script>
+
+</html>

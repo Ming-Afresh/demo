@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* @import url('https://fonts.gongleapis.com/css?family=Montserrat&display=swap'); */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #70a399 url('../images/28.jpg')no-repeat center center/cover;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 300px;
+            width: 300px;
+            margin: auto;
+            position: relative;
+            transform: scale(1);
+        }
+
+        .gradient-circle {
+            background: conic-gradient(#55b7a4 0%,
+                    #4ca493 40%,
+                    #fff 40%,
+                    #fff 60%,
+                    #214863 40%,
+                    #2f828b 100%);
+            /* #558f82 20%,
+                    #2d485e 40%,
+                    #375872 40%,
+                    #2e495f 40%,
+                    #214863 60%,
+                    #2f828b 80%); */
+            height: 320px;
+            width: 320px;
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            z-index: -2;
+            border-radius: 50%;
+        }
+
+        .circle {
+            background: #143b4a;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        .pointer-container {
+            position: absolute;
+            top: -40px;
+            left: 140px;
+            width: 20px;
+            height: 190px;
+            /* background: red; */
+            animation: rotate 7.5s linear forwards infinite;
+            transform-origin: bottom center;
+        }
+
+        .pointer {
+            background: #fff;
+            border-radius: 50%;
+            height: 20px;
+            width: 20px;
+            display: block;
+        }
+
+        .container.grow {
+            animation: grow 3s linear forwards;
+        }
+
+        .container.shrink {
+            animation: shrink 3s linear forwards;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes grow {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes shrink {
+            from {
+                transform: scale(1.2);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Relaxer</h1>
+
+    <div class="container">
+
+        <div class="circle"></div>
+
+        <p id="text"></p>
+
+        <div class="pointer-container">
+            <div class="pointer"></div>
+        </div>
+
+        <div class="gradient-circle"></div>
+    </div>
+    <script>
+        const container = document.querySelector('.container')
+        const text = document.querySelector('#text')
+
+        const totalTime = 7500
+        const breatheTime = (totalTime / 5) * 2
+        const holdTime = totalTime / 5
+
+        breatheAnimation()
+
+        function breatheAnimation() {
+            text.innerHTML = 'Breath In!'
+            container.className = 'container grow'
+
+            setTimeout(() => {
+                text.innerText = 'Hold'
+
+                setTimeout(() => {
+                    text.innerText = 'Breathe Out!'
+                    container.className = 'container shrink'
+                }, holdTime)
+            }, breatheTime)
+        }
+
+        setInterval(breatheAnimation, totalTime);
+    </script>
+</body>
+
+</html>

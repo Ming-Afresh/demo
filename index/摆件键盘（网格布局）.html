@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .keyboard {
+            /* 方便维护 不设置宽高*/
+            position: absolute;
+            left: 50%;
+            /* 网格布局 */
+            display: grid;
+            /* 分为几列多大像素 */
+            grid-template-columns: repeat(30, 30px);
+            /* 分为几行多大像素 */
+            grid-template-rows: repeat(5, 60px);
+            /* ----------------repeat(5,1fr) fr单位被用于一系列长度值中分配剩余空间 
+            若已指定多个部分则剩下的空间根据各自的数字按比例分配-------------- */
+            /* ----------------grid-gap:20px 表示间隔------------------------ */
+            /* 分割单元格间距 */
+            gap: 5px;
+            background: linear-gradient(125deg, #2c3e50, #2980b9, #27ae60, #e74c3c, #8e44ad);
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 20px;
+            transform: translateX(-50%);
+        }
+
+        .key {
+            /* 合并单元格 */
+            font-size: 10px;
+            grid-column: span 2;
+            border: 1px solid black;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2),
+                0px 0px 5px rgba(255, 255, 255, 1);
+            background: white;
+            line-height: 60px;
+            text-align: center;
+        }
+
+        .delete {
+            grid-column: span 4;
+        }
+
+        .tab {
+            grid-column: span 3;
+        }
+
+        .xiegang {
+            grid-column: span 3;
+        }
+
+        .caps {
+            grid-column: span 4;
+        }
+
+        .enter {
+            grid-column: span 4;
+        }
+
+        .shift {
+            grid-column: span 5;
+        }
+
+        .space {
+            grid-column: span 16;
+        }
+
+        .key:hover {
+            font-size: 15px;
+            color: aqua;
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0.2),
+                0 0 0 rgba(255, 255, 255, 0.8),
+                inset 0px 0px 30px rgba(0, 0, 0, 0.1),
+                inset 0px 0px 30px rgba(255, 255, 255, 1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="keyboard">
+        <div class="key">~</div>
+        <div class="key">1</div>
+        <div class="key">2</div>
+        <div class="key">3</div>
+        <div class="key">4</div>
+        <div class="key">5</div>
+        <div class="key">6</div>
+        <div class="key">7</div>
+        <div class="key">8</div>
+        <div class="key">9</div>
+        <div class="key">0</div>
+        <div class="key">-</div>
+        <div class="key">=</div>
+        <div class="key delete">Delete</div>
+        <div class="key tab">Tab</div>
+        <div class="key">q</div>
+        <div class="key">w</div>
+        <div class="key">e</div>
+        <div class="key">r</div>
+        <div class="key">t</div>
+        <div class="key">y</div>
+        <div class="key">u</div>
+        <div class="key">i</div>
+        <div class="key">o</div>
+        <div class="key">p</div>
+        <div class="key">[</div>
+        <div class="key">]</div>
+        <div class="key xiegang">\</div>
+        <div class="key caps">Caps</div>
+        <div class="key">a</div>
+        <div class="key">s</div>
+        <div class="key">d</div>
+        <div class="key">f</div>
+        <div class="key">g</div>
+        <div class="key">h</div>
+        <div class="key">j</div>
+        <div class="key">k</div>
+        <div class="key">l</div>
+        <div class="key">;</div>
+        <div class="key">'</div>
+        <div class="key enter">Enter</div>
+        <div class="key shift">Shift</div>
+        <div class="key">z</div>
+        <div class="key">x</div>
+        <div class="key">c</div>
+        <div class="key">v</div>
+        <div class="key">b</div>
+        <div class="key">n</div>
+        <div class="key">m</div>
+        <div class="key">,</div>
+        <div class="key">.</div>
+        <div class="key">/</div>
+        <div class="key shift">Shift</div>
+        <div class="key">Ctrl</div>
+        <div class="key">Win</div>
+        <div class="key">Alt</div>
+        <div class="key space">Space</div>
+        <div class="key">Alt</div>
+        <div class="key">Fn</div>
+        <div class="key">Com</div>
+        <div class="key">Ctrl</div>
+    </div>
+</body>
+
+</html>

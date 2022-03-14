@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS轮播图</title>
+	<style type="text/css">
+		*{
+			padding:0;
+			margin: 0;
+		}
+		body{
+			display:flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+		.swiper{
+			position: relative;
+			width: 627px;
+			height: 320px;
+			overflow: hidden;
+		}
+		input{
+			display:none;
+		}
+		label{
+			position:absolute;
+			bottom: 30px;
+			width: 10px;
+			height: 10px;
+			border: 3px solid #fff;
+			border-radius:  50%;
+			background: #fff;
+		}
+		label[for="btn1"]{left:40%}
+		label[for="btn2"]{left:45%}
+		label[for="btn3"]{left:50%}
+		label[for="btn4"]{left:55%}
+		label[for="btn5"]{left:60%}
+		ul{
+			display:flex;
+/*			自动计算宽度*/
+			width: calc(627px*5);
+			transition: all 0.5s;
+		}
+		li{
+			list-style-type:none;
+		}
+		#btn1:checked~ul{margin-left:0;}
+		#btn2:checked~ul{margin-left:-627px;}
+		#btn3:checked~ul{margin-left:calc(-627px*2);}
+		#btn4:checked~ul{margin-left:calc(-627px*3);}
+		#btn5:checked~ul{margin-left:calc(-627px*4);}
+		#btn1:checked~label[for='btn1']{background:red;}
+		#btn2:checked~label[for='btn2']{background:red;}
+		#btn3:checked~label[for='btn3']{background:red;}
+		#btn4:checked~label[for='btn4']{background:red;}
+		#btn5:checked~label[for='btn5']{background:red;}
+	</style>
+</head>
+
+<body>
+	<div class="swiper">
+		<input type="radio" name="btn" id="btn1" checked>
+		<input type="radio" name="btn" id="btn2">
+		<input type="radio" name="btn" id="btn3">
+		<input type="radio" name="btn" id="btn4">
+		<input type="radio" name="btn" id="btn5">
+		<label for="btn1"></label>
+		<label for="btn2"></label>
+		<label for="btn3"></label>
+		<label for="btn4"></label>
+		<label for="btn5"></label>
+		<ul>
+			<li><img src="../images/1.jpg"></li>
+			<li><img src="../images/2.jpg"></li>
+			<li><img src="../images/3.jpg"></li>
+			<li><img src="../images/4.jpg"></li>
+			<li><img src="../images/5.jpg"></li>
+		</ul>
+	</div>
+</body>
+</html>

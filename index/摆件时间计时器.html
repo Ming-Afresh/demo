@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #01579b;
+        }
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+        }
+
+        header .logo {
+            position: relative;
+            color: #fff;
+            font-size: 28px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        header nav {
+            position: relative;
+        }
+
+        header nav ul {
+            position: relative;
+            display: flex;
+        }
+
+        header nav ul li {
+            list-style: none;
+            display: inline-block;
+            margin-right: 30px;
+        }
+
+        /* =========================导航栏文字底部下划线css动画================================== */
+        nav ul li a {
+            width: 70px;
+            height: 100%;
+            float: left;
+            margin: 0 15px;
+            position: relative;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        nav ul li a span {
+            margin: auto;
+            display: inline-block;
+            position: absolute;
+            top: 30px;
+            left: 0;
+            right: 0;
+            width: 0px;
+            height: 2px;
+            background: #fff;
+            transition: .5s;
+            border-radius: 50px;
+        }
+
+        nav ul li a:hover span {
+            width: 100%;
+            left: 0;
+            /* ------------------去掉left变为从左至右---------------------- */
+        }
+
+
+        section {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 100vh;
+            padding: 0 100px;
+        }
+
+        section .contentBx {
+            position: relative;
+            max-width: 600px;
+            z-index: 1000;
+        }
+
+        section .contentBx h2 {
+            font-size: 60px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        section .contentBx p {
+            font-size: 18px;
+            color: #fff;
+        }
+
+        section .contentBx .countdown {
+            display: flex;
+            margin: 20px 0;
+        }
+
+        section .contentBx .countdown .time {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: #fff;
+            margin-right: 20px;
+            font-size: 48px;
+            min-width: 110px;
+            font-weight: 700;
+            padding: 10px 5px 15px;
+            border-radius: 4px;
+            color: aqua;
+        }
+
+        section .contentBx .countdown .time span {
+            margin-top: -10px;
+            font-size: 20px;
+            font-weight: 600;
+            color: #312747;
+        }
+
+        section .contentBx a {
+            position: relative;
+            margin-top: 10px;
+            display: inline-block;
+            background: aqua;
+            color: #fff;
+            font-size: 20px;
+            letter-spacing: 2px;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 40px;
+        }
+
+        section .imgBx img {
+            position: relative;
+            max-width: 1000px;
+            width: 100%;
+            margin-top: 40%;
+            z-index: 2;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        section .sci {
+            position: absolute;
+            font-size: 40px;
+            bottom: 150px;
+            left: 100px;
+            z-index: 1000;
+        }
+
+        section .sci .fa {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="#" class="logo">Brand Name</a>
+        <nav>
+            <ul>
+                <li><a href="#">Home<span></span></a></li>
+                <li><a href="#">Artist<span></span></a></li>
+                <li><a href="#">Events<span></span></a></li>
+                <li><a href="#">VisitUs<span></span></a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <img src="../image/23.png" alt="" class="wave">
+        <div class="contentBx">
+            <h2>Coming Soon</h2>
+            <p>Each person's life is like a documentary, in the process of many things with you hand in
+                Wrong relationship, you are in some of the controllable some uncontrollable, finally when you step into
+                a stage of life
+                Period when looking back at a look, and all the picture is clearly visible, but unable to change, you
+                can only move
+                forward continue age
+                Record the belongs to own everything.
+            </p>
+            <div class="countdown">
+                <div class="time">
+                    <div id="day"></div><span>Days</span>
+                </div>
+                <div class="time">
+                    <div id="hour"></div><span>Hours</span>
+                </div>
+                <div class="time">
+                    <div id="minute"></div><span>Minutes</span>
+                </div>
+                <div class="time">
+                    <div id="second"></div><span>Seconds</span>
+                </div>
+            </div>
+            <a href="#">Notify Me!</a>
+        </div>
+        <div class="imgBx">
+            <img src="../image/22.png" alt="">
+        </div>
+        <div class="sci">
+            <a href="#"><i class="fa fa-bell"></i></a>
+            <a href="#"><i class="fa fa-bank"></i></a>
+            <a href="#"><i class="fa fa-camera"></i></a>
+        </div>
+    </section>
+</body>
+<script>
+    var countDate = new Date('Jan 1, 2021 00:00:00').getTime();
+    function newYear() {
+        var now = new Date().getTime();
+        gap = countDate - now;
+
+        var second = 1000;
+        var minute = second * 60;
+        var hour = minute * 60;
+        var day = hour * 24;
+
+        var d = Math.floor(gap / (day));
+        var h = Math.floor((gap % (day)) / (hour));
+        var m = Math.floor((gap % (hour)) / (minute));
+        var s = Math.floor((gap % (minute)) / (second));
+
+        document.getElementById('day').innerText = -(d + 1);
+        document.getElementById('hour').innerText = -(h + 1);
+        document.getElementById('minute').innerText = -(m + 1);
+        document.getElementById('second').innerText = -(s + 1);
+    }
+
+    setInterval(function () {
+        newYear();
+    }, 1000)
+</script>
+
+</html>

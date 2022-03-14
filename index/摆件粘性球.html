@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>粘性球</title>
+	<style type="text/css">
+		*{
+			padding:0;
+			margin: 0;
+		}
+		body{
+			display:flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			background: #000;
+		}
+		.effect{
+			position:relative;
+			width: 320px;
+			height: 320px;
+			background: #fff;
+			border-radius: 50%;
+/*			对比度*/
+			filter: contrast(10);
+		}
+		.blackball,.redball{
+			position:absolute;
+			top:50%;
+			left: 50%;
+			padding: 10px;
+			border-radius: 50%;
+/*			设置模糊度 配合上面的contrast显示球形的粘性效果*/
+			filter: blur(5px);
+			transform: translate(-50%,-50%);
+		}
+		.blackball{
+			width:100px;
+			height: 100px;
+			background: black;
+		}
+		.redball{
+			width:60px;
+			height: 60px;
+			background: red;
+			animation: ball 5s infinite;
+		}
+/*		定义动画*/
+		@keyframes ball{
+			0%,100%{left:50px;width:60px;height:60px;}
+			4%,54%{width:60px;height:60px;}
+			10%,60%{width:50px;height:70px;}
+			20%,70%{width:60px;height:60px;}
+			34%,90%{width:70px;height:50px;}
+			41%{width:60px;height:60px;}
+			50%{left:270px;width 60px;height:60px}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="effect">
+		<div class="blackball"></div>
+		<div class="redball"></div>
+	</div>
+</body>
+</html>

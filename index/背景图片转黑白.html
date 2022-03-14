@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .box {
+            position: relative;
+            width: 50%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .box img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* 保留比例 部分剪切 */
+            object-fit: cover;
+        }
+
+        .box:nth-child(2) img {
+            /* 滤镜: 灰度 ; 对比(对比度0%全黑 100%无变化 超过100%更亮 默认值1) */
+            filter: grayscale(1) contrast(5);
+        }
+
+        /*  分图片选择用法  */
+        .box:nth-child(3) img {
+            /* 滤镜: ...;...; 线性乘法0~100 由暗变亮 */
+            filter: grayscale(1) contrast(1) brightness(2);
+            /* 类似Ps值 hard-light"强光" */
+            mix-blend-mode: hard-light;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="../image/n1.jpg" alt="">
+    </div>
+    <div class="box">
+        <img src="../image/n1.jpg" alt="">
+    </div>
+    <div class="box">
+        <img src="../image/n1.jpg" alt="">
+    </div>
+</body>
+
+</html>

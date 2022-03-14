@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>多元素拟态按钮</title>
+	<style type="text/css">
+		*{
+			padding:0;
+			margin: 0;
+		}
+		body{
+			display:flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			background: #efeeee;
+		}
+		.container{
+			display:flex;
+/*			一行元素平均分配宽度*/
+			justify-content:space-around;
+			align-items: center;
+/*			元素在一行放不下自动换行*/
+			flex-wrap: wrap;
+			width: 700px;
+			height: 600px;
+		}
+		.container .box{
+			display:flex;
+			justify-content:space-around;
+			align-items: center;
+/*			让元素垂直排列 这里是包含图片的div和文字垂直排列*/
+			flex-direction: column;
+			width: 100px;
+			height: 140px;
+			margin: 20px;
+			cursor: pointer;
+		}
+		.container .box .img{
+			display:flex;
+			justify-content: center;
+			align-items: center;
+			width: 100px;
+			height: 100px;
+			border-radius: 20px;
+			box-shadow: 18px 18px 30px rgba(0,0,0,0.2),-18px -18px 30px rgba(255,255,255,1);
+/*			ease-out是先快速 后慢速*/
+			transition: all 0.2s ease-out;
+		}
+		.container .box .img img{
+			width:60px;
+			transition: all 0.2s ease-out;
+		}
+		.container .box p{
+			color:slategrey;
+		}
+		.container .box .img:hover{
+/*			inset是内部阴影 默认是外部阴影outset*/
+			box-shadow:0 0 0 rgba(0,0,0,0.2),0 0 0 rgba(255,255,255,0.8),inset 18px 18px 30px rgba(0,0,0,0.1),inset -18px -18px 30px rgba(255,255,255,1);
+		}
+		.container .box .img:hover img{
+			width:58px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="box"><div class="img"><img src="../image/001.png"></div><p>冰淇淋</p></div>
+		<div class="box"><div class="img"><img src="../image/002.png"></div><p>拿铁</p></div>
+		<div class="box"><div class="img"><img src="../image/003.png"></div><p>三明治</p></div>
+		<div class="box"><div class="img"><img src="../image/004.png"></div><p>热狗</p></div>
+		<div class="box"><div class="img"><img src="../image/005.png"></div><p>啤酒</p></div>
+		<div class="box"><div class="img"><img src="../image/006.png"></div><p>薯条</p></div>
+		<div class="box"><div class="img"><img src="../image/007.png"></div><p>奶茶</p></div>
+		<div class="box"><div class="img"><img src="../image/008.png"></div><p>鸡腿</p></div>
+		<div class="box"><div class="img"><img src="../image/009.png"></div><p>甜筒</p></div>
+		<div class="box"><div class="img"><img src="../image/010.png"></div><p>康师傅</p></div>
+		<div class="box"><div class="img"><img src="../image/011.png"></div><p>汉堡包</p></div>
+		<div class="box"><div class="img"><img src="../image/012.png"></div><p>洋葱圈</p></div>
+		<div class="box"><div class="img"><img src="../image/013.png"></div><p>可乐</p></div>
+		<div class="box"><div class="img"><img src="../image/014.png"></div><p>披萨</p></div>
+		<div class="box"><div class="img"><img src="../image/015.png"></div><p>舒芙蕾</p></div>
+	</div>
+</body>
+</html>

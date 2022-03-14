@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>海洋球</title>
+	<style type="text/css">
+		*{
+			padding:0;
+			margin: 0;
+		}
+		body{
+			display:flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			background: linear-gradient(rgb(90,90,250),rgb(3,3,110));
+		}
+		.container,.move{
+			width:200px;
+			height: 200px;
+			border-radius: 50%;
+		}
+		.container{
+			border:3px solid aqua;
+			padding: 10px;
+		}
+		.move{
+			position:relative;
+			background: skyblue;
+			overflow: hidden;
+		}
+		.move::before{
+			content:'';
+			position:absolute;
+			top:0;
+			left: 50%;
+			width:300px;
+			height: 300px;
+			background: rgba(255,255,255,.8);
+			border-radius: 42%;
+/*			快速让元素垂直水平居中 -50%是向左移动父元素宽度的一般 -60%是向上移动父元素高度的60%*/
+			transform: translate(-50%,-60%);
+			animation: move 4s linear infinite;
+		}
+		.move::after{
+			content:'oceanball';
+			position: absolute;
+			top: 30px;
+			left: 50%;
+			text-transform: uppercase;
+			color: aqua;
+			font-weight: 700;
+			transform: translate(-50%,0);
+		}
+/*		定义水波纹动画*/
+		@keyframes move{
+			100%{
+				transform:translate(-50%,-60%) rotate(360deg);
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="move"></div>
+	</div>
+</body>
+</html>

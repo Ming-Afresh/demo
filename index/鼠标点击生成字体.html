@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: rgb(35, 35, 35);
+        }
+
+        span {
+            font-size: 20px;
+            color: aqua;
+            position: absolute;
+            transition: 1s;
+            /* 让弹出来的文字不被选中 */
+            user-select: none;
+            cursor: default;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        //设置随机出现的文字数组
+        var arr = ["终无岁月可回头，且以深情共白头", "这世间星辰大海不及你美丽的十分之一", "让我用生命谱曲，唱一首爱你一生的歌", "喜欢你就如同这日子，只增不减", "你是这上天送给我最好的礼物", "你携着月色缓缓向我走来，连这空气都变得温柔"]
+        document.onclick = function (x) {
+            //创建元素节点对象
+            var span = document.createElement("span")
+            //获取鼠标坐标
+            span.style.left = x.clientX + "px"
+            span.style.top = x.clientY + "px"
+            //让span的值为arr中的随机一个
+            span.innerHTML = arr[Math.floor(Math.random() * arr.length)]
+            //设置span的动画
+            setTimeout(function () {
+                span.style.opacity = "1"
+                span.style.transform = "translateY(-100px)"
+            }, 100)
+            setTimeout(function () {
+                span.style.opacity = "0"
+                span.style.transform = "translateY(-230px)"
+            }, 1500)
+            //清除opacity为0的span
+            var chi = document.getElementsByClassName("span")
+            for (var i = 0; i < chi.length; i++) {
+                if (chi[i].style.opacity === "0") {
+                    document.body.removeChild(chi[i])
+                }
+            }
+            document.body.appendChild(span)
+        }
+    </script>
+</body>
+
+</html>

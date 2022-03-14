@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>四叶草</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: #1c1c1e;
+        }
+
+        .loading {
+            width: 76px;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            top: 45%;
+            margin: 0 auto;
+            animation: rotate 3s linear infinite;
+        }
+
+        .loading span {
+            width: 32px;
+            height: 32px;
+            margin: 3px;
+        }
+
+        .loading span:nth-child(1) {
+            background: #e5efc1;
+            border-radius: 50% 50% 0 50%;
+        }
+
+        .loading span:nth-child(2) {
+            background: #a2d5ab;
+            border-radius: 50% 50% 50% 0;
+        }
+
+        .loading span:nth-child(3) {
+            background: #39aea9;
+            border-radius: 50% 0 50% 50%;
+        }
+
+        .loading span:nth-child(4) {
+            background: #557b83;
+            border-radius: 0 50% 50% 50%;
+        }
+
+        @keyframes rotate {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loading">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html,
+        body {
+            height: 100%;
+            background: #f2f2f2;
+            display: grid;
+            place-items: center;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card {
+            height: 290px;
+            max-width: 350px;
+            margin: 0 20px;
+            background: white;
+            transition: .4s;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, .2);
+        }
+
+        .card:hover {
+            height: 470px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
+        }
+
+        .card .img {
+            height: 200px;
+            width: 100%;
+        }
+
+        .card .img img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card .top-text {
+            padding: 10px;
+        }
+
+        .card .top-text .name {
+            font-size: 25px;
+            font-weight: 600;
+            color: #202020;
+        }
+
+        .card .top-text p {
+            font-size: 20px;
+            font-weight: 600;
+            color: #e74c3c;
+            line-height: 20px;
+        }
+
+        .card .bottom-text {
+            padding: 0 20px 10px 20px;
+            margin-top: 5px;
+            background: white;
+            opacity: 0;
+            /* display: none隐藏后的元素不占据任何空间，而visibility: hidden隐藏后的元素空间依旧保留 
+            visibility具有继承性 不会影响计数器的计数   display:none有回流 
+            回流 【在DOM树基础上根据节点的几何属性(margin/padding/width/height等)
+            生成render树(不包括display:none、head节点但会包含visibility:hidden节点)
+            当render树中的一部分或者全部因为大小边距等问题发生改变而需要重建的过程叫做回流 
+            display:none会引起回流和重绘，visibility:hidden会引起重绘】*/
+            visibility: hidden;
+            transition: .1s;
+        }
+
+        .card:hover .bottom-text {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .card .bottom-text .text {
+            /* 段落对齐  若是表单需加:after伪元素 即 姓   名： 联系方式：（上下对齐） */
+            text-align: justify;
+        }
+
+        .card .bottom-text .btn {
+            margin: 10px 0;
+            text-align: left;
+        }
+
+        .card .bottom-text .btn a {
+            /*  text-decoration: none;
+                没有文本装饰
+                text-decoration: underline red;
+                红色下划线
+                text-decoration: underline wavy red;
+                红色波浪形下划线         */
+            text-decoration: none;
+            background: #e74c3c;
+            color: #f2f2f2;
+            padding: 5px 8px;
+            border-radius: 3px;
+            display: inline-flex;
+        }
+
+        .card .bottom-text .btn a:hover {
+            transform: scale(.9);
+            transition: .5s;
+        }
+
+        /* 响应式  */
+        @media screen and (max-width: 978px) {
+            .container {
+                flex-wrap: wrap;
+                flex-direction: column;
+            }
+
+            .card {
+                max-width: 700px;
+                margin: 20px 0;
+            }
+        }
+    </style>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="img">
+                <img src="../images/2.jpg">
+            </div>
+            <div class="top-text">
+                <div class="name">西部牛仔</div>
+                <p>狂野而又不失礼节</p>
+            </div>
+            <div class="bottom-text">
+                <div class="text">From dawn to the day, dare not how hard it is, I never retreat.
+                    Collect memories between two people alone, Even when I cry at this time,
+                    Why everything become so, unable to return to the past.</div>
+                <div class="btn"><a href="#">Read more</a></div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="img">
+                <img src="../images/3.jpg">
+            </div>
+            <div class="top-text">
+                <div class="name">源计划风</div>
+                <p>金属迸发出的火花</p>
+            </div>
+            <div class="bottom-text">
+                <div class="text">From dawn to the day, dare not how hard it is, I never retreat.
+                    Collect memories between two people alone, Even when I cry at this time,
+                    Why everything become so, unable to return to the past.</div>
+                <div class="btn"><a href="#">Read more</a></div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="img">
+                <img src="../images/4.jpg">
+            </div>
+            <div class="top-text">
+                <div class="name">腥红之月</div>
+                <p>绚烂于绽放中凋零</p>
+            </div>
+            <div class="bottom-text">
+                <div class="text">From dawn to the day, dare not how hard it is, I never retreat.
+                    Collect memories between two people alone, Even when I cry at this time,
+                    Why everything become so, unable to return to the past.</div>
+                <div class="btn"><a href="#">Read more</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

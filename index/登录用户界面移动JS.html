@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            user-select: none;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        button {
+            width: 100px;
+            height: 40px;
+            color: #409eff;
+            border: 1px solid #b3d8ff;
+            border-radius: 4px;
+            background: #ecf5ff;
+            transition: all .3s;
+            cursor: pointer;
+        }
+
+        button:hover {
+            border-color: #409eff;
+            color: #fff;
+            background: #409eff;
+        }
+
+        .model-box {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, .45);
+        }
+
+        .model-box .content {
+            position: absolute;
+            left: calc(50% - 210px);
+            padding: 0 20px;
+            width: 420px;
+            height: 350px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .5);
+        }
+
+        .model-box .content .title {
+            display: flex;
+            justify-content: space-between;
+            height: 60px;
+            line-height: 60px;
+        }
+
+        .model-box .content .title span {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .model-box .content .title i {
+            font-style: normal;
+            font-size: 24px;
+            color: #909090;
+            cursor: pointer;
+        }
+
+        .model-box .content .title i:hover {
+            color: #409eff;
+        }
+
+        .model-box .content form .form-input {
+            margin: 20px 0;
+        }
+
+        .model-box .content form .form-input label {
+            font-size: 14px;
+            color: #606266;
+            cursor: pointer;
+        }
+
+        .model-box .content form .form-input input {
+            /* 取消表单轮廓 */
+            outline: 0;
+            width: 100%;
+            height: 42px;
+            padding: 0 15px;
+            margin-top: 20px;
+            border: 1px solid #dcdfe6;
+            border-radius: 4px;
+        }
+
+        /* 获取焦点变色 */
+        .model-box .content form .form-input input:focus {
+            border-color: #409eff;
+        }
+
+        .model-box .content form .form-input button {
+            float: right;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="open">登录</button>
+    <div class="model-box">
+        <div class="content">
+            <div class="title"><span>登录</span><i class="close">×</i></div>
+            <form action="">
+                <div class="form-input"><label for="username">请输入用户名</label><input type="text" id="username"></div>
+                <div class="form-input"><label for="password">请输入密码</label><input type="password" id="password"></div>
+                <div class="form-input"><button>登录</button></div>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    // 添加页面加载事件
+    window.addEventListener("load", () => {
+        // 获取打开按钮
+        const open = document.querySelector(".open");
+        // 获取关闭按钮
+        const close = document.querySelector(".close");
+        // 获取整个模拟框
+        const fillScreen = document.querySelector(".model-box");
+
+        // 获取模拟框可移动区域
+        const header = document.querySelector(".title");
+        // 获取模拟框主区域
+        const modelBox = document.querySelector('.content')
+        // 做打开功能
+        open.addEventListener("click", () => {
+            // 点击打开按钮 改变display属性值
+            fillScreen.style.display = "block";
+        });
+        // 关闭功能
+        close.addEventListener('click', () => {
+            fillScreen.style.display = "none";
+        });
+
+        // 移动功能
+        header.addEventListener("mousedown", (event) => {
+            const x = event.pageX - modelBox.offsetLeft;
+            const y = event.pageY - modelBox.offsetTop;
+            document.addEventListener('mousemove', move);
+            function move(event) {
+                modelBox.style.left = event.pageX - x + "px";
+                modelBox.style.top = event.pageY - y + "px";
+            }
+            document.addEventListener('mouseup', () => {
+                document.removeEventListener("mousemove", move);
+            });
+        });
+    });
+</script>
+
+</html>

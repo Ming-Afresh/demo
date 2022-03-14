@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>悬停多彩按钮</title>
+	<style type="text/css">
+		*{
+			padding:0;
+			margin: 0;
+		}
+		body{
+			display:flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			background: #353b48;
+		}
+		.container{
+			display:flex;
+/*			改变主轴方向 这个主轴向下了 元素垂直排列*/
+			flex-direction: column;
+		}
+		.container a{
+			position:relative;
+			width: 200px;
+			height: 60px;
+			line-height: 60px;
+			text-align: center;
+			margin: 50px;
+			font-size: 30px;
+			color: #7f8;
+			text-decoration: none;
+			border: 5px solid #7f8;
+			filter: hue-rotate(calc(var(--i)*90deg));
+		}
+		.container a::before,.container a::after{
+			content:"";
+			position: absolute;
+			width: 15px;
+			height: 5px;
+			background: #353b48;
+			transform: skew(50deg);
+			transition: all 0.5s;
+		}
+		.container a::before{top:-5px;left: 10%;}
+		.container a::after{bottom:-5px;right: 10%;}
+		.container a:hover::before{left:80%;}
+		.container a:hover::after{right:80%;}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<a href="#" style="--i:1">喜剧</a>
+		<a href="#" style="--i:2">爱情</a>
+		<a href="#" style="--i:3">动作</a>
+		<a href="#" style="--i:4">惊悚</a>
+		<a href="#" style="--i:5">犯罪</a>
+	</div>
+</body>
+</html>

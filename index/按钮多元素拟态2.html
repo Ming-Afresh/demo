@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            background: #091921;
+        }
+
+        .icons li {
+            position: relative;
+            list-style: none;
+            display: inline-flex;
+            margin: 0 10px;
+            height: 70px;
+            width: 70px;
+            background: #091921;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1),
+                2px 2px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        .icons li.active::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 55px;
+            width: 55px;
+            background: #091921;
+            border-radius: 50%;
+            box-shadow: inset -1px -1px 3px rgba(255, 255, 255, 0.1),
+                inset 2px 2px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        .icons li a {
+            color: #b6bbc5;
+            font-size: 30px;
+            width: 100%;
+            line-height: 70px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .icons li.active a {
+            color: cyan;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="icons">
+        <li><a href="#"><span class="fa fa-facebook-f"></span></a></li>
+        <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+        <li><a href="#"><span class="fa fa-instagram"></span></a></li>
+        <li><a href="#"><span class="fa fa-qq"></span></a></li>
+        <li><a href="#"><span class="fa fa-play-circle"></span></a></li>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+    $('.icons li').click(function () {
+        $(this).toggleClass("active");
+        $('.icons li a').toggleClass("active").siblings();
+    })
+</script>
+
+</html>

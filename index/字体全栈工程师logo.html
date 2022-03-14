@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+	<style type="text/css">
+		body{
+			background:#000;
+		}
+		h1,h2{
+			color:#333;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+			top:300px;
+			font-size: 100px;
+		}
+		h1::after{
+			content:'Full Stack';
+			position: absolute;
+			top: 50px;
+			left: 800px;
+			color:transparent;
+			background-image:linear-gradient(to right,red,#192a56,aqua,yellow,#6d214f,#2e86de,#4cd137,#e84118);
+/*			背景绘制区域 值为text时表示文字的镂空效果 但前提是文字颜色为透明色*/
+			background-clip: text;
+			-webkit-background-clip: text;
+		}
+		h2::after{
+			content:'engineer';
+			position: absolute;
+			top: -50px;
+			left: 600px;
+			color:transparent;
+			background-image:linear-gradient(to right,red,#192a56,aqua,yellow,#6d214f,#2e86de,#4cd137,#e84118);
+/*			背景绘制区域 值为text时表示文字的镂空效果 但前提是文字颜色为透明色*/
+			background-clip: text;
+			-webkit-background-clip: text;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Full Stack</h1>
+	<h2>engineer</h2>
+</body>
+</html>

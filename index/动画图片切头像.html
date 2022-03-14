@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: sans-serif;
+        }
+
+        .hd-accordian {
+            height: 100vh;
+            display: flex;
+        }
+
+        .item {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            transition: .7s cubic-bezier(0.79, 0.01, 0.25, 1);
+            background-color: black;
+            display: flex;
+        }
+
+        .item:hover {
+            flex-grow: 2;
+        }
+
+        .item:hover .content {
+            opacity: 1;
+        }
+
+        .item:hover .content .profile {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .bg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            background-position: center;
+            transition: 0.3s ease;
+        }
+
+        .content {
+            display: flex;
+            flex: 1;
+            background-color: white;
+            opacity: 1;
+            transition: 0.3s ease;
+            justify-content: center;
+        }
+
+        .profile {
+            transition: .7s cubic-bezier(0.79, 0.01, 0.25, 1);
+            transition-delay: 0.3s;
+            background-color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 640px;
+            padding: 50px;
+            opacity: 0;
+            transform: translateY(70px);
+        }
+
+        .profile img {
+            align-self: center;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hd-accordian">
+        <div class="item">
+            <div class="bg" style="background-image: url(../image/010.jpg);"></div>
+            <div class="content">
+                <div class="profile">
+                    <img src="../image/015.jpg" alt="">
+                    <br>
+                    <h2 class="title">路飞</h2>
+                    <p>Monkey·D·Luffy</p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="bg" style="background-image: url(../image/011.jpg);"></div>
+            <div class="content">
+                <div class="profile">
+                    <img src="../image/016.jpg" alt="">
+                    <br>
+                    <h2 class="title">索隆</h2>
+                    <p>Roronoa Zoro</p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="bg" style="background-image: url(../image/012.jpg);"></div>
+            <div class="content">
+                <div class="profile">
+                    <img src="../image/017.jpg" alt="">
+                    <br>
+                    <h2 class="title">山治</h2>
+                    <p>Sanji</p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="bg" style="background-image: url(../image/013.jpg);"></div>
+            <div class="content">
+                <div class="profile">
+                    <img src="../image/018.jpg" alt="">
+                    <br>
+                    <h2 class="title">娜美</h2>
+                    <p>Nami</p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="bg" style="background-image: url(../image/014.jpg);"></div>
+            <div class="content">
+                <div class="profile">
+                    <img src="../image/019.jpg" alt="">
+                    <br>
+                    <h2 class="title">乔巴</h2>
+                    <p>Tony Tony Chopper</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

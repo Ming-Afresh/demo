@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: grid;
+            height: 100%;
+            place-items: center;
+            text-align: center;
+        }
+
+        .icons {
+            list-style: none;
+            position: relative;
+            top: 300px;
+        }
+
+        .icons li {
+            position: relative;
+            height: 70px;
+            width: 70px;
+            display: inline-block;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .icons li::before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            border-radius: 10%;
+            transition: all .3s ease-in;
+            background: linear-gradient(45deg, #7b00e0, #ae31d9);
+        }
+
+        .icons li:hover:before {
+            transform: rotate(360deg);
+            border-radius: 100%;
+        }
+
+        .icons li a span {
+            color: #fff;
+            line-height: 70px;
+            font-size: 27px;
+            transition: all .3s ease-out;
+        }
+
+        .icons li:hover a span {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="icons">
+        <li><a href="#"><span class="fa fa-bell"></span></a></li>
+        <li><a href="#"><span class="fa fa-bank"></span></a></li>
+        <li><a href="#"><span class="fa fa-bus"></span></a></li>
+        <li><a href="#"><span class="fa fa-camera"></span></a></li>
+        <li><a href="#"><span class="fa fa-cc"></span></a></li>
+    </ul>
+</body>
+
+</html>

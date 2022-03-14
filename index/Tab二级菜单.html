@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tab垂直手风琴导航栏</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style type="text/css">
+		*{
+			padding:0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		body{
+			display:flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+		li{list-style:none;}
+		.accordion{
+			overflow:hidden;
+			width:300px;
+			border-radius: 8px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.6);
+		}
+		.accordion>li{width:100%;}
+		.accordion>li input{display: none;}
+		.accordion>li label{position: relative; display: block;width: 100%;padding: 20px 50px;color: #fff; background: gray;cursor: pointer;}
+		.accordion>li label i{position: absolute;top: calc(50%-12px);left: 20px;font-size: 24px;transition: all 0.5s;}
+		.accordion>li label::after{content:"";position: absolute;right: 20px;bottom: -14px; width: 30px;height: 15px;background: inherit;clip-path: polygon(0 0,100% 0,50% 100%);}
+/*		第二种方法*/
+/*		.accordion>li label::after{content:"";position: absolute;right: 25px;bottom: -10px; width: 20px;height: 20px;background: inherit;transform: rotate(45deg);}*/
+		.accordion>li label:hover{background:gray;}
+/*		:not()选择器选取的是除括号里的元素以外其他元素  :first-child选择器是第一个元素*/
+		.accordion>li:not(:first-child) label{border-top:1px solid #333;}
+		.accordion>li ol{width: 100%;background: #333;}
+		.accordion>li ol li{position:relative;width: 100%;height: 0;line-height: 50px;padding-left: 20px; color: #fff;cursor: pointer;transition: all 0.5s;}
+		.accordion>li ol li::before{content:"";position: absolute;top: 3px;
+		left: 0;width: 5px;height: 44px;background: gray;transform: scaleY(0);transition: all 0.5s;}
+		.accordion>li ol li:hover::before{transform:scaleY(1);}
+		.accordion>li input:checked~label i{transform:rotate(90deg);}
+		.accordion>li input:checked~ol li{height:50px;}
+	</style>
+</head>
+
+<body>
+	<ul class="accordion">
+		<li>
+			<input type="radio" name="item" id="item1">
+			<label for="item1">一级标题1<i class="fa fa-caret-right"></i></label>
+			<ol>
+				<li>二级标题1</li>
+				<li>二级标题2</li>
+				<li>二级标题3</li>
+				<li>二级标题4</li>
+			</ol>
+		</li>
+		<li>
+			<input type="radio" name="item" id="item2">
+			<label for="item2">一级标题2<i class="fa fa-caret-right"></i></label>
+			<ol>
+				<li>二级标题1</li>
+				<li>二级标题2</li>
+				<li>二级标题3</li>
+				<li>二级标题4</li>
+			</ol>
+		</li>
+		<li>
+			<input type="radio" name="item" id="item3">
+			<label for="item3">一级标题3<i class="fa fa-caret-right"></i></label>
+			<ol>
+				<li>二级标题1</li>
+				<li>二级标题2</li>
+				<li>二级标题3</li>
+				<li>二级标题4</li>
+			</ol>
+		</li>
+		<li>
+			<input type="radio" name="item" id="item4">
+			<label for="item4">一级标题4<i class="fa fa-caret-right"></i></label>
+			<ol>
+				<li>二级标题1</li>
+				<li>二级标题2</li>
+				<li>二级标题3</li>
+				<li>二级标题4</li>
+			</ol>
+		</li>
+	</ul>
+</body>
+</html>
